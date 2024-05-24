@@ -1,17 +1,18 @@
 Summary:	GNU Artanis web-framework
 Summary(pl.UTF-8):	GNU Artanis - szkielet WWW
 Name:		artanis
-# NOTE: 0.5.x requires guile >= 3.0
-Version:	0.4.1
+Version:	0.6
 Release:	1
 License:	GPL v3+, LGPL v3+
 Group:		Applications/Networking
 Source0:	https://ftp.gnu.org/gnu/artanis/%{name}-%{version}.tar.bz2
-# Source0-md5:	24bceec509e32b096e912ecee19d82d4
+# Source0-md5:	edafd8a97c8fcb3220320c75306fef6e
 URL:		http://www.gnu.org/software/artanis/
-BuildRequires:	guile-devel >= 5:2.2
+BuildRequires:	guile-curl
+BuildRequires:	guile-devel >= 5:3.0
 BuildRequires:	guile-devel < 5:3.2
-Requires:	guile >= 5:2.2
+Requires:	guile >= 5:3.0
+Requires:	guile-curl
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
@@ -46,6 +47,8 @@ rm -rf $RPM_BUILD_ROOT
 	DESTDIR=$RPM_BUILD_ROOT
 
 %{__mv} $RPM_BUILD_ROOT{/bin,%{_prefix}/bin}
+
+%{__rm} $RPM_BUILD_ROOT%{_sysconfdir}/artanis/.gitkeep
 
 install -d $RPM_BUILD_ROOT%{bash_compdir}
 cp -p build-aux/show-artanis-cmds.sh $RPM_BUILD_ROOT%{bash_compdir}/artanis
