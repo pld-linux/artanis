@@ -1,18 +1,22 @@
 Summary:	GNU Artanis web-framework
 Summary(pl.UTF-8):	GNU Artanis - szkielet WWW
 Name:		artanis
-Version:	0.6
+Version:	1.2.2
 Release:	1
 License:	GPL v3+, LGPL v3+
 Group:		Applications/Networking
 Source0:	https://ftp.gnu.org/gnu/artanis/%{name}-%{version}.tar.bz2
-# Source0-md5:	edafd8a97c8fcb3220320c75306fef6e
+# Source0-md5:	a7dbcb6c9641bd521a34dae7c0c7c8ce
 URL:		http://www.gnu.org/software/artanis/
 BuildRequires:	guile-curl
+BuildRequires:	guile-json
 BuildRequires:	guile-devel >= 5:3.0
 BuildRequires:	guile-devel < 5:3.2
+BuildRequires:	guile-redis
 Requires:	guile >= 5:3.0
 Requires:	guile-curl
+Requires:	guile-json
+Requires:	guile-redis
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
@@ -62,6 +66,7 @@ rm -rf $RPM_BUILD_ROOT
 %attr(755,root,root) %{_bindir}/art
 %dir %{_sysconfdir}/artanis
 %config(noreplace) %verify(not md5 mtime size) %{_sysconfdir}/artanis/artanis.conf
+%config(noreplace) %verify(not md5 mtime size) %{_sysconfdir}/artanis/plugins.scm
 %dir %{_sysconfdir}/artanis/pages
 %config(noreplace) %verify(not md5 mtime size) %{_sysconfdir}/artanis/pages/*.html
 %config(noreplace) %verify(not md5 mtime size) %{_sysconfdir}/artanis/pages/warn-the-client.tpl
