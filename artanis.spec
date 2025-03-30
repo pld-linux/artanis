@@ -19,6 +19,9 @@ Requires:	guile-json
 Requires:	guile-redis
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
+%define		_enable_debug_packages	0
+%define		_noautostrip		.*.go
+
 %description
 GNU Artanis aims to be a web application framework for Scheme.
 
