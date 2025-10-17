@@ -1,12 +1,12 @@
 Summary:	GNU Artanis web-framework
 Summary(pl.UTF-8):	GNU Artanis - szkielet WWW
 Name:		artanis
-Version:	1.2.2
+Version:	1.3.0
 Release:	1
 License:	GPL v3+, LGPL v3+
 Group:		Applications/Networking
 Source0:	https://ftp.gnu.org/gnu/artanis/%{name}-%{version}.tar.bz2
-# Source0-md5:	a7dbcb6c9641bd521a34dae7c0c7c8ce
+# Source0-md5:	1ec780ff1371ec64983f026cf232aa37
 URL:		http://www.gnu.org/software/artanis/
 BuildRequires:	guile-curl
 BuildRequires:	guile-json
